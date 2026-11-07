@@ -1,8 +1,11 @@
 import { type CSSProperties, type FormEvent, useEffect, useRef, useState } from "react";
 
+// Works locally and on GitHub Pages (this becomes "/bethel-birthday-website/" when live).
+const base = import.meta.env.BASE_URL;
+
 // Photos live in the project's /public folder.
-const PHOTO_ONE = "/b1.jpeg";
-const PHOTO_TWO = "/b2.jpeg";
+const PHOTO_ONE = `${base}b1.jpeg`;
+const PHOTO_TWO = `${base}b2.jpeg`;
 
 // Links
 const RSVP_LINK = "https://partiful.com/e/n0sHmgYtF7WK15wnJrns?c=y46cqg3D";
@@ -23,7 +26,7 @@ const END_SECONDS = 233;
 // Photo strips use /public/p1 ... /public/p16. The page works out the file type by itself.
 const PHOTO_EXTENSIONS = ["jpeg", "jpg", "png", "webp", "JPEG", "JPG", "PNG"];
 type StripConfig = { tilt: string; delay: string; photos: string[] };
-const stripPhotos = (first: number) => [0, 1, 2, 3].map((i) => `/p${first + i}`);
+const stripPhotos = (first: number) => [0, 1, 2, 3].map((i) => `${base}p${first + i}`);
 
 const LEFT_STRIPS: StripConfig[] = [
   { tilt: "-8deg", delay: "0.2s", photos: stripPhotos(1) },
@@ -203,12 +206,12 @@ function Cassette() {
 }
 
 // Tries each file type in turn until one loads; falls back to the placeholder text.
-function FramePhoto({ base }: { base: string }) {
+function FramePhoto({ photo }: { photo: string }) {
   const [attempt, setAttempt] = useState(0);
   if (attempt >= PHOTO_EXTENSIONS.length) return <span>picture here…</span>;
   return (
     <img
-      src={`${base}.${PHOTO_EXTENSIONS[attempt]}`}
+      src={`${photo}.${PHOTO_EXTENSIONS[attempt]}`}
       alt=""
       loading="lazy"
       onError={() => setAttempt((a) => a + 1)}
@@ -223,14 +226,14 @@ function PhotoStrip({ tilt, delay, photos }: StripConfig) {
       style={{ "--tilt": tilt, "--delay": delay } as CSSProperties}
     >
       <div className="strip">
-        {photos.map((base) => (
-  <div
-    className={`frame ${base === "/p15" ? "p15-frame" : ""}`}
-    key={base}
-  >
-    <FramePhoto base={base} />
-  </div>
-))}
+        {photos.map((photo) => (
+          <div
+            className={`frame ${photo === `${base}p15` ? "p15-frame" : ""}`}
+            key={photo}
+          >
+            <FramePhoto photo={photo} />
+          </div>
+        ))}
         <p className="strip-label">bethel · 21</p>
       </div>
     </div>
@@ -295,17 +298,17 @@ export default function App() {
   return (
     <main>
       <div className="glitter" aria-hidden="true" />
- <a
-  className="creator-credit"
-  href="https://instagram.com/folaranmifab"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  created by @folaranmifab
-</a>
+      <a
+        className="creator-credit"
+        href="https://instagram.com/folaranmifab"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        created by @folaranmifab
+      </a>
       <header className="hero">
         <div className="hero-stage">
-      
+
           <div className="strips left" aria-hidden="true">
             {LEFT_STRIPS.map((strip, i) => (
               <PhotoStrip key={i} {...strip} />
@@ -407,7 +410,7 @@ export default function App() {
             Think Y2K, glitter, glamour. More is
             more.
           </p>
-          <a className="text-link" href= "https://pin.it/20PwGrblq" target="_blank" rel="noreferrer">
+          <a className="text-link" href="https://pin.it/20PwGrblq" target="_blank" rel="noreferrer">
             dress code inspo <span aria-hidden="true">↗</span>
           </a>
         </div>

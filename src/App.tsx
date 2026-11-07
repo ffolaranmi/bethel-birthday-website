@@ -384,7 +384,7 @@ export default function App() {
               <span>01</span> owambe of the year
             </li>
             <li>
-              <span>02</span> good food &amp; birthday drinks
+              <span>02</span> good food &amp; drinks
             </li>
             <li>
               <span>03</span> flash photos all night long
@@ -401,7 +401,7 @@ export default function App() {
           <img src={PHOTO_TWO} alt="Bethel" />
         </div>
         <div className="dress-copy">
-          <SectionTitle kicker="dress to impress">the moodboard</SectionTitle>
+          <SectionTitle kicker="dress to impress">the mood</SectionTitle>
           <h3 id="dress-title">Y2K nostalgia meets glamour.</h3>
           <p>
             Think Y2K, glitter, glamour. More is

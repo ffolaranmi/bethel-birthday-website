@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=Italiana&family=Shrikhand&display=swap");
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Arsenal:ital,wght@0,400;0,700;1,400;1,700&family=Felipa&display=swap');
 
 @theme {
   --font-sans: "DM Sans", sans-serif;
@@ -148,25 +148,30 @@ h1 > span {
 }
 
 h1 strong {
+  position: relative;
   display: block;
-  color: #ffc4e9;
-  font-family: "Shrikhand", cursive;
   font-size: clamp(190px, 35vw, 430px);
-  font-weight: 400;
-  letter-spacing: -0.09em;
-  text-shadow:
-    6px 7px 0 #ff1598,
-    12px 14px 0 rgba(54, 4, 101, 0.65);
-  -webkit-text-stroke: 2px #ffe28b;
+}
+
+h1 strong img {
+  display: block;
+  width: clamp(190px, 35vw, 430px);
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
 }
 
 h1 sup {
-  display: inline-block;
+  position: absolute;
+  top: 8%;
+  right: 8%;
+  z-index: 2;
+  color: #6fffe1;
   font-family: "DM Sans", sans-serif;
-  font-size: 0.08em;
+  font-size: 24px;
+  font-weight: 700;
   letter-spacing: 0;
-  vertical-align: top;
-  transform: translate(5px, 32px) rotate(8deg);
+  transform: rotate(8deg);
 }
 
 h1 em {

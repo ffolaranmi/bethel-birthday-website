@@ -60,12 +60,13 @@ export default function App() {
         <div className="hero-content" id="top">
           <p className="eyebrow">you&apos;re invited to</p>
           <h1>
-            <span>Bethel&apos;s</span>
-            <strong>
-              21<sup>st</sup>
-            </strong>
-            <em>birthday</em>
-          </h1>
+  <span>Bethel&apos;s</span>
+  <strong>
+    <img src="/21.png" alt="21" />
+    <sup>st</sup>
+  </strong>
+  <em>birthday</em>
+</h1>
           <p className="hero-tagline">Glitter on. Volume up. It&apos;s time to celebrate.</p>
           <a className="primary-button" href="#rsvp">
             save your spot <span aria-hidden="true">→</span>

@@ -1,4 +1,4 @@
-import { CSSProperties, FormEvent, useEffect, useRef, useState } from "react";
+import { type CSSProperties, type FormEvent, useEffect, useRef, useState } from "react";
 
 // Photos live in the project's /public folder.
 const PHOTO_ONE = "/b1.jpeg";
@@ -7,7 +7,7 @@ const PHOTO_TWO = "/b2.jpeg";
 // Links
 const RSVP_LINK = "https://partiful.com/e/n0sHmgYtF7WK15wnJrns?c=y46cqg3D";
 const WISHLIST_LINK = "https://giftwhale.com/lists/5Yy5JX";
-const INSPO_LINK = "https://www.google.com"; // placeholder: swap for your dress code inspo link
+
 
 // Song suggestions go into a Google Sheet. Paste your Apps Script "web app" URL here
 // (setup steps are in Code.gs).
